@@ -1,0 +1,126 @@
+<nav class="navbar bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <img
+        src="/assets/bootstrap-logo.svg"
+        alt="Logo"
+        width="30"
+        height="24"
+        class="d-inline-block align-text-top"
+      />
+      SISVITA
+    </a>
+  </div>
+</nav>
+<div class="container-fluid">
+  <div class="row">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Registrar Personas</h5>
+        <form [formGroup]="personaForm">
+          <div class="row mb-3">
+            <label for="inputAPaterno" class="col-sm-2 col-form-label"
+              >Apellido Paterno:</label
+            >
+            <div class="col-sm-10">
+              <input
+                type="text"
+                class="form-control"
+                id="inputAPaterno"
+                placeholder="Consigne el Apellido Paterno"
+                formControlName="apellido_paterno"
+              />
+            </div>
+          </div>
+          <div class="row mb-3">
+            <label for="inputAMaterno" class="col-sm-2 col-form-label"
+              >Apellido Materno:</label
+            >
+            <div class="col-sm-10">
+              <input
+                type="text"
+                class="form-control"
+                id="inputAMaterno"
+                placeholder="Consigne el Apellido Materno"
+                formControlName="apellido_materno"
+              />
+            </div>
+          </div>
+          <div class="row mb-3">
+            <label for="inputNombres" class="col-sm-2 col-form-label"
+              >Nombres:</label
+            >
+            <div class="col-sm-10">
+              <input
+                type="text"
+                class="form-control"
+                id="inputNombres"
+                placeholder="Consigne los Nombres"
+                formControlName="nombres"
+              />
+            </div>
+          </div>
+          <div class="row mb-3">
+            <label for="inputFNac" class="col-sm-2 col-form-label"
+              >Fecha Nacimiento:</label
+            >
+            <div class="col-sm-10">
+              <input
+                type="date"
+                class="form-control"
+                id="inputFNac"
+                placeholder="Consigne la Fecha de Nacimiento"
+                formControlName="fecha_nacimiento"
+              />
+            </div>
+          </div>
+          <button
+            type="submit"
+            class="btn btn-primary"
+            (click)="registrarPersona()"
+          >
+            Registrar
+          </button>
+        </form>
+      </div>
+      <!--end card-body-->
+    </div>
+    <!--end card cabecera-->
+    <div class="card">
+      <div class="card-body">
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">N°</th>
+              <th scope="col">APaterno</th>
+              <th scope="col">AMaterno</th>
+              <th scope="col">Nombres</th>
+              <th scope="col">FNacimiento</th>
+              <th scope="col">Tipo Documento</th>
+              <th scope="col">N° Documento</th>
+              <th scope="col">Direccion</th>
+              <th scope="col">Ubigeo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let persona of personaArray; let i = index">
+              <td>{{ i + 1 }}</td>
+              <td>{{ persona.apellido_paterno }}</td>
+              <td>{{ persona.apellido_materno }}</td>
+              <td>{{ persona.nombres }}</td>
+              <td>{{ persona.fecha_nacimiento }}</td>
+              <td>{{ persona.id_tipo_documento }}</td>
+              <td>{{ persona.ndocumento }}</td>
+              <td>{{ persona.direccion }}</td>
+              <td>{{ persona.idubigeo }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!--end card-body detalle-->
+    </div>
+    <!--end card detalle-->
+  </div>
+  <!--end row-->
+</div>
+<!--end container-->
