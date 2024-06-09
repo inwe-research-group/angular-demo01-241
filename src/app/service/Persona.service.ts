@@ -24,6 +24,6 @@ export class PersonaService {
   }
 
   eliminarPersona(persona: Persona) {
-    return this.http.delete(`${this.BASE_URL}/delete`, { body: persona });
+    return this.http.delete(`${this.BASE_URL}/eliminar`, { body: persona });
   }
 }
